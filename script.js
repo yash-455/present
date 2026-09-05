@@ -417,6 +417,9 @@ function setupScrollReveals() {
 
 const musicBtn = $("#musicBtn");
 const birthdaySong = $("#birthdaySong");
+const MUSIC_VOLUME = 0.35;
+
+birthdaySong.volume = MUSIC_VOLUME;
 
 function updateMusicButton() {
   const playing = !birthdaySong.paused;
@@ -431,6 +434,10 @@ function toggleMusic() {
     birthdaySong.pause();
   }
   updateMusicButton();
+}
+
+function startMusic() {
+  birthdaySong.play().catch(updateMusicButton);
 }
 
 /* =====================================================================
@@ -468,7 +475,10 @@ function init() {
   musicBtn.addEventListener("click", toggleMusic);
   birthdaySong.addEventListener("play", updateMusicButton);
   birthdaySong.addEventListener("pause", updateMusicButton);
-  birthdaySong.play().catch(updateMusicButton);
+  startMusic();
+  ["pointerdown", "keydown"].forEach((eventName) => {
+    document.addEventListener(eventName, startMusic, { once: true });
+  });
 
   // footer finale
   $("#finaleBtn").addEventListener("click", () => {
