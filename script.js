@@ -436,7 +436,8 @@ function toggleMusic() {
   updateMusicButton();
 }
 
-function startMusic() {
+function startMusic(event) {
+  if (event && event.target.closest("#musicBtn")) return;
   birthdaySong.play().catch(updateMusicButton);
 }
 
