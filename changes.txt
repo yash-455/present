@@ -1,0 +1,7 @@
+1. the happy birthday text is not  one line the letters "AY" are in the second line fix that.
+2. remove the confetti button and add the same confetti effect to "Let's celebrate" button.
+3. candle blowing does not work in both the cases with nother  blown them out button nor by clicking the candles fix this.
+4. remove entire gift section.
+5. Hover / tap to "develop" a blurred photo into focus does not work and in additionally I want to make them flip when clicked after they are developed(not blured) and in the back of them they contain different message in each photos.
+6. the "one more time" button suppose to make a grand confettie but it does not work
+7. popping the ballons do not work.

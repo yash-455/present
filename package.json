@@ -1,0 +1,25 @@
+{
+  "name": "present",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:buttons": "playwright test buttons-and-controls",
+    "test:cake": "playwright test cake-candles",
+    "test:gift": "playwright test gift-gallery",
+    "test:letter": "playwright test letter-animations",
+    "test:effects": "playwright test balloons-effects",
+    "test:a11y": "playwright test accessibility-responsive"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

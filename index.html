@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday · a cozy little corner</title>
+
+  <!-- Fonts: Fredoka (rounded display) · Caveat (handwritten accent) · Nunito (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+  <!-- ambient layers ------------------------------------------------------ -->
+  <div class="sky" aria-hidden="true"></div>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="string-lights" id="stringLights" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <audio id="birthdaySong" loop preload="auto" autoplay>
+    <source src="HONNE_-_la_la_la_that_s_how_it_goes_(mp3.pm).mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- cozy control dock --------------------------------------------------- -->
+  <div class="dock" role="toolbar" aria-label="Page controls">
+    <button class="dock-btn" id="musicBtn" aria-pressed="false" title="Pause music">
+      <span class="dock-icon" aria-hidden="true">🎵</span>
+      <span class="dock-label">Music</span>
+    </button>
+  </div>
+
+  <main>
+    <!-- HERO -------------------------------------------------------------- -->
+    <section class="hero" id="hero">
+      <div class="balloons" id="balloons" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <p class="eyebrow reveal">psst… someone special has a birthday</p>
+        <h1 class="title" id="title" aria-label="Happy Birthday"></h1>
+        <p class="name-line"><span class="name-script" id="nameScript"></span></p>
+        <p class="hero-sub reveal">
+          I made this little surprise just for you.
+          
+        </p>
+        <button class="btn btn-primary" id="celebrateBtn">Let’s celebrate <span aria-hidden="true">✨</span></button>
+        <p class="scroll-hint reveal" aria-hidden="true">scroll down, there’s more ↓</p>
+      </div>
+    </section>
+
+    <!-- CAKE (signature) -------------------------------------------------- -->
+    <section class="section cake-section" id="cakeSection">
+      <p class="eyebrow-2 reveal-up">Make a wish</p>
+      <h2 class="section-title reveal-up">Blow out the candles</h2>
+      <p class="section-note reveal-up">Tap each flame — or use the button — and make a wish.</p>
+
+      <div class="cake-stage">
+        <div class="cake" id="cake" role="group" aria-label="Birthday cake with candles">
+          <div class="candles" id="candles"></div>
+          <div class="tier tier-top"></div>
+          <div class="tier tier-mid"></div>
+          <div class="tier tier-base"></div>
+          <div class="plate"></div>
+        </div>
+      </div>
+
+      <div class="cake-controls">
+        <button class="btn btn-soft" id="blowBtn">Blow them out <span aria-hidden="true">🌬️</span></button>
+        <button class="btn btn-ghost" id="relightBtn" hidden>Light them again <span aria-hidden="true">🕯️</span></button>
+      </div>
+    </section>
+
+    <!-- GIFT -------------------------------------------------------------- -->
+    <section class="section gift-section" id="giftSection">
+      <h2 class="section-title reveal-up">A little note for</h2>
+      <p class="section-note reveal-up">Give it a tap to unwrap.</p>
+
+      <div class="gift-stage">
+        <button class="gift" id="gift" aria-label="Unwrap the gift">
+          <span class="gift-lid">
+            <span class="gift-bow" aria-hidden="true"></span>
+          </span>
+          <span class="gift-box">
+            <span class="gift-ribbon-v" aria-hidden="true"></span>
+          </span>
+          <span class="gift-surprise" aria-hidden="true">🤍</span>
+        </button>
+      </div>
+      <p class="gift-message" id="giftMessage" hidden>It’s a great big hug — and a promise of the best year yet. I knnow its tough right now but I wish you the best and happiest days ahed. I wish you achieve all your dreams and get what you deserve. k And always rember to keep that smile of yours always shining. </p>
+    </section>
+
+    <!-- PHOTO GALLERY ----------------------------------------------------- -->
+    <section class="section gallery-section" id="gallerySection">
+      <h2 class="section-title reveal-up">Moments worth keeping</h2>
+      <p class="section-note reveal-up"></p>
+
+      <!--
+        TO ADD REAL PHOTOS: give each .polaroid a background image, e.g.
+        <div class="polaroid" style="--photo:url('photos/beach.jpg')"> … </div>
+        The captions live in the <figcaption>. Emoji are just friendly stand-ins.
+      -->
+      <div class="gallery" id="gallery">
+        <figure class="polaroid reveal-up" tabindex="0">
+          <div class="photo-card">
+            <div class="photo photo-a" style="--photo: url('photos/1.jpg')"></div>
+            <figcaption>The first photo together! was afarid to put hand on your waist 😭, not gonna lie</figcaption>
+          </div>
+        </figure>
+        <figure class="polaroid reveal-up" tabindex="0">
+          <div class="photo-card">
+            <div class="photo photo-b" style="--photo: url('photos/2.jpg')"></div>
+            <figcaption>Everyday sharing a bench together, bunking classes and roming around made my college days worth it.</figcaption>
+          </div>
+        </figure>
+        <figure class="polaroid reveal-up" tabindex="0">
+          <div class="photo-card">
+            <div class="photo photo-c" style="--photo: url('photos/PHOTO-2026-09-05-12-14-31.jpg')"></div>
+            <figcaption>Endless chai sessions and the riverfront visits, will never forget those.</figcaption>
+          </div>
+        </figure>
+        <figure class="polaroid reveal-up" tabindex="0">
+          <div class="photo-card">
+            <div class="photo photo-d" style="--photo: url('photos/WhatsApp Image 2026-09-05 at 12.51.18.jpeg')"></div>
+            <figcaption>And this! I will miss this a lot. wandering at nights on activa, and endless talks.</figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- LETTER (text reveal) ---------------------------------------------- -->
+    <section class="section letter-section" id="letterSection">
+      <h2 class="section-title reveal-up">A note for you</h2>
+      <div class="letter-card reveal-up">
+        <p class="letter-body" id="letterBody" data-letter="On your birthday, I want you to know how glad I am that you exist. You make ordinary days feel warmer, and hard days feel lighter. Thank you for your kindness, your laugh, and the way you make everyone around you feel at home. 
+        Without you I would have never survived my college days, we had our ups and down throughout all this days, we had our moments like not speaking for days and on other days sharing our hearts out.
+        honestely you are one of the only person that did not care about how silent I can get because of my introvertness, I had my days where I was not at my best and you were still there taht's what I love about you the most.
+
+        once again happy birthday Vanshika! hope you win in the life.
+        "></p>
+        <p class="letter-sign" id="letterSign"></p>
+        <button class="btn btn-soft" id="letterBtn">Read my note <span aria-hidden="true">💌</span></button>
+      </div>
+    </section>
+
+    <!-- FOOTER ------------------------------------------------------------ -->
+    <footer class="footer">
+      <button class="btn btn-primary" id="finaleBtn">One more time! <span aria-hidden="true">🎉</span></button>
+      <p class="footer-note">made with <span aria-hidden="true">🤍</span> just for you</p>
+    </footer>
+  </main>
+
+  <!-- wish overlay for the candle moment ---------------------------------- -->
+  <div class="wish-overlay" id="wishOverlay" hidden>
+    <div class="wish-inner">
+      <p class="wish-line" id="wishLine">Close your eyes…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
